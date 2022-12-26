@@ -1,0 +1,16 @@
+{
+  "name": "test-file-upload",
+  "schemaPath": "project_schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Remote GraphQL Endpoint": {
+        "url": "https://parseapi.back4app.com/graphql",
+        "headers": {
+          "X-Parse-Application-Id": "QrYfJbqjKMhEg3CfnpkaUbZeqCCm7RR7J9dbZt7w",
+          "X-Parse-Javascript-Key": "ffcAyJd260lvHgJxSdfwZCfofwWBdT4aT0ZphaVU"
+        },
+        "introspect": true
+      }
+    }
+  }
+}
