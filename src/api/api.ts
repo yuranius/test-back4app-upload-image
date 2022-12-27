@@ -1,21 +1,52 @@
-import {gql} from "@apollo/client";
+import { gql } from "@apollo/client";
+
+export const UPLOAD = gql`
+	mutation createCard($name: String!, $image: Upload!) {
+		createCard(input: { 
+				fields: { 
+						name: $name, 
+						image: { 
+								upload: $image
+						} 
+				} 
+		}) {
+			card {
+				id
+				name
+			}
+		}
+	}
+`
 
 export const CREATE = gql`
-	mutation createCard ($name: String!, $image: File!) {
-			createCard(input: {
-					fields: {
-							name: $name,
-							image: {
-									file: $image
-							}
-					}
-			}){
+	mutation update ($image: Upload!){
+			createFile(input: {
+					upload: $image
+			}) {
+					fileInfo {
+							name
+							url
+          }
+			}
+	}
+`
+export const DOWNLOAD = gql`
+	mutation download ($name: String!, $file: Upload!){
+			createCard(
+					input: {
+						fields: {
+								name: $name
+								image: {
+									upload: $file
+								}
+						}
+				}){
 					card {
-							id
 							name
 							image {
-									url
+									__typename
 									name
+									url
               }
           }
 			}
